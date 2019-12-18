@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= themeConfig.siteName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<%- include('./includes/header') %>
+<%- include('./includes/header-post') %>
+<div class="mdui-container">
+    <div class="mdui-row">
+        <div class="mdui-col-md-10 mdui-col-offset-md-1 ">
+            <% let years = []; posts.forEach((item) => { const year = item.date.substring(0, 4); if (!years.includes(year)) { years.push(year); } }); %>
+            <% years.forEach(function(year) { %>
+                <div class="mdui-typo-display-1 mdui-m-b-2 mdui-m-l-1">
+                    <div class="mdui-row">
+                        <div class="mdui-col-xs-12"><%- year %></div>
+                    </div>
+                    <div class="mdui-row">
+                        <% posts.forEach(function(post) { %>
+                        <%if (post.date.indexOf(year) !== -1) { %>
+                            <div class="mdui-col-xs-6 mdui-p-a-1">
+                                <div class="mdui-card">
+                                    <div class="mdui-card-media">
+                                        <img width=536px height=300px src="<% if (themeConfig.showFeatureImage && post.feature) { %> <%= post.feature %><% }else{ %><%=site.customConfig['route']%>media/img/bai.jpg<%}%>"/>
+                                        <div class="mdui-card-primary">
+                                            <div class="mdui-card-primary-title"><%= post.title %></div>
+                                            <div class="mdui-card-primary-subtitle"><%= post.dateFormat %></div>
+                                        </div>
+                                    </div>
+                                    <div class="mdui-card-actions" style="float:right;">
+                                        <a href="<%= post.link %>" class="mdui-btn mdui-color-theme-accent mdui-ripple">点击查看</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }); %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    <div class="mdui-row">
+        <%- include('./includes/yema') %>
+    </div>
+</div>
+<%- include('./includes/footer') %>
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+</html>

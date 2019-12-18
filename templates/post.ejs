@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= themeConfig.siteName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/post.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<%- include('./includes/header') %>
+<%- include('./includes/header-post') %>
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title"><%= post.title %></h1>
+                    <p class="entry-census">发布于 <%= post.dateFormat %></p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <%- post.content%>
+                </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                <% if (post.prevPost && !post.hideInList) { %>
+                <a href="<%= post.prevPost.link %>" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
+                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down"><%= post.prevPost.title %></div>
+                    </div>
+                </a>
+                <%}else{%>
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                <%}%>
+                <% if (post.nextPost && !post.hideInList) { %>
+                <a href="<%= post.nextPost.link %>" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter"><%= post.nextPost.title%></div>
+                    </div>
+                </a>
+                <%}else{%>
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+    <br>
+    <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
+        <% if (commentSetting.commentPlatform === 'gitalk') { %>
+            <%- include('./includes/gitalk') %>
+        <% } %>
+
+        <% if (commentSetting.commentPlatform === 'disqus') { %>
+            <%- include('./includes/disqus') %>
+        <% } %>
+    <% } %>
+    <div class="comment"></div>
+</div>
+<%- include('./includes/footer') %>
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        <% if (site.customConfig.id) { %>
+        app_id: '<%= site.customConfig.id %>',
+        <% } %>
+        <% if (site.customConfig.key) { %>
+        app_key: '<%= site.customConfig.key %>',
+        <% } %>
+        <% if (site.customConfig.fy) { %>
+        placeholder: '<%= site.customConfig.fy %>',
+        <% } %>
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
+</html>

@@ -1,0 +1,105 @@
+{
+  "name": "凛",
+  "version": "1.0",
+  "author": "Apa琦",
+  "repository": "",
+  "customConfig": [
+    {
+      "name": "indeximg",
+      "label": "首页图片",
+      "group": "首页",
+      "value": "",
+      "type": "input",
+      "note": "请输入图片地址"
+    },
+    {
+      "name": "route",
+      "label": "静态资源路径",
+      "group": "首页",
+      "value": "/",
+      "type": "input",
+      "note": "如果您的网站在子目录请改为 /xxxx"
+    },
+      {
+        "name": "steam",
+        "label": "steam",
+        "group": "社交",
+        "value": "",
+        "type": "input",
+        "note": "链接地址"
+      },
+      {
+        "name": "github",
+        "label": "Github",
+        "group": "社交",
+        "value": "",
+        "type": "input",
+        "note": "链接地址"
+      },
+      {
+        "name": "zhihu",
+        "label": "知乎",
+        "group": "社交",
+        "value": "",
+        "type": "input",
+        "note": "链接地址"
+      },
+      {
+        "name": "qq",
+        "label": "QQ",
+        "group": "社交",
+        "value": "",
+        "type": "input",
+        "note": "链接地址"
+      },
+      {
+        "name": "weibo",
+        "label": "微博",
+        "group": "社交",
+        "value": "",
+        "type": "input",
+        "note": "链接地址"
+      },
+    {
+      "name": "bilibili",
+      "label": "bilibili",
+      "group": "社交",
+      "value": "",
+      "type": "input",
+      "note": "链接地址"
+    },
+      {
+        "name": "valine",
+        "label": "是否显示Valine评论",
+        "group": "Valine评论",
+        "value": true,
+        "type": "switch",
+        "note": "仅在宽屏时生效"
+      },
+      {
+        "name": "id",
+        "label": "ID",
+        "group": "Valine评论",
+        "value": "",
+        "type": "input",
+        "note": "请输入ID"
+      },
+      {
+        "name": "key",
+        "label": "KEY",
+        "group": "Valine评论",
+        "value": "",
+        "type": "input",
+        "note": "请输入key"
+      },
+      {
+        "name": "fy",
+        "label": "欢迎词",
+        "group": "Valine评论",
+        "value": "",
+        "type": "input",
+        "note": "请输入欢迎词"
+      }
+
+]
+}

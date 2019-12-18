@@ -1,0 +1,17 @@
+<% posts.forEach(function(post) { %>
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="<%= (themeConfig.showFeatureImage && post.feature)?post.feature:themeConfig.domain+'/media/img/bai.jpg'%>"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title"><%= post.title %></div>
+                    <div class="mdui-card-primary-subtitle"><%- post.abstract %></div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="<%= post.link %>" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head_card-offset"></div>
+<% }); %>

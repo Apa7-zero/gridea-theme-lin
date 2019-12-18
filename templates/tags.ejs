@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= themeConfig.siteName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/tags.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+        <%- include('./includes/header') %>
+        <%- include('./includes/header-post') %>
+        <br>
+        <div class="mdui-container">
+            <div class="mdui-row mdui-row-gapless">
+                <div class="k-container">
+                    <div class="mdui-row">
+                        <% site.tags.forEach(function(tag) { %>
+                        <div class="mdui-col mdui-p-a-1">
+                            <article class="archives-list mdui-shadow-15  mdui-hoverable mdui-color-white ">
+                                <a href="<%= tag.link %>">
+                                    <div class="mdui-p-a-2">
+                                        <div class="mdui-typo-headline mdui-text-truncate index-list-title mdui-m-b-3 mdui-text-color-theme"><%= tag.name %></div>
+                                        <div class="mdui-typo-title mdui-m-t-1 mdui-text-color-blue-grey-200">共有<%= tag.count %>篇文章</div>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                        <%})%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('./includes/footer') %>
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= themeConfig.siteName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+        <%- include('./includes/header') %>
+        <%- include('./includes/header-post') %>
+        <div class="mdui-container">
+            <div class="mdui-row mdui-row-gapless">
+                <div class="k-container">
+                    <div class="head_card-offset"></div>
+                    <%- include('./includes/index-list') %>
+                </div>
+            </div>
+            <div class="mdui-row mdui-row-gapless">
+                <div class="k-container">
+                    <%- include('./includes/yema') %>
+                </div>
+            </div>
+        </div>
+        <%- include('./includes/footer') %>
+    </body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+</html>

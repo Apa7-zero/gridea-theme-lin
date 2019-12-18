@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= themeConfig.siteName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/index.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+    <style>
+        #centerbg{
+            background-image: url(<%=site.customConfig['indeximg']%>);
+        }
+    </style>
+</head>
+<body class=" mdui-loaded">
+<header class="mdui-toolbar mdui-color-theme mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title"><%= themeConfig.siteName %></span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+<div class="meteor">
+    <div class="red" style="left:600px;"></div>
+    <div class="orange" style="left:700px;"></div>
+    <div class="yellow" style="left:900px;"></div>
+    <div class="green" style="left:1100px;"></div>
+    <div class="cyan" style="left:1260px;"></div>
+    <div class="blue" style="left:1400px;"></div>
+    <div class="purple" style="left:1500px;"></div>
+    <div class="red" style="left:0px;"></div>
+    <div class="orange" style="left:100px;"></div>
+    <div class="yellow" style="left:300px;"></div>
+    <div class="green" style="left:500px;"></div>
+    <div class="cyan" style="left:660px;"></div>
+    <div class="blue" style="left:800px;"></div>
+    <div class="purple" style="left:900px;"></div>
+    <div class="red" style="left:1200px;"></div>
+    <div class="orange" style="left:1300px;"></div>
+    <div class="yellow" style="left:1500px;"></div>
+    <div class="green" style="left:1700px;"></div>
+    <div class="cyan" style="left:1860px;"></div>
+    <div class="blue" style="left:2000px;"></div>
+    <div class="purple" style="left:2100px;"></div>
+</div>
+<%- include('./includes/header-post') %>
+<div class="headertop filter-grid" style="height: auto">
+    <figure id="centerbg" class="centerbg" style="">
+        <div class="focusinfo">
+            <div class="header-tou">
+                <a href="<%= menus.link%>>">
+                    <img src="/images/avatar.png">
+                </a>
+            </div>
+            <div class="header-info">
+                <p><%= themeConfig.siteDescription%></p>
+            </div>
+            <div class="top-social">
+                <% if(site.customConfig['qq']){%>
+                <li>
+                    <a href="<%= site.customConfig['qq']%>" target="_blank" title="Initiate chat ?">
+                        <div class="www" id="qq"></div>
+                    </a>
+                </li>
+                <%}%>
+                <% if(site.customConfig['bilibili']){%>
+                <li>
+                    <a href="<%= site.customConfig['bilibili']%>" target="_blank" class="social-bili" title="bilibili">
+                        <div class="www" id="bilibili"></div>
+                    </a>
+                </li>
+                <%}%>
+                <% if(site.customConfig['weibo']){%>
+                <li>
+                    <a href="<%= site.customConfig['weibo']%>" target="_blank" class="social-bili" title="weibo">
+                        <div class="www" id="weibo"></div>
+                    </a>
+                </li>
+                <%}%>
+                 <% if(site.customConfig['zhihu']){%>
+                <li>
+                    <a href="<%= site.customConfig['zhihu']%>" target="_blank" class="social-bili" title="zhihu">
+                        <div class="www" id="zhihu"></div>
+                    </a>
+                </li>
+                <%}%>
+                <% if(site.customConfig['steam']){%>
+                <li>
+                    <a href="<%= site.customConfig['steam']%>" target="_blank" class="social-wangyiyun" title="Twitter">
+                        <div class="www" id="steam"></div>
+                    </a>
+                </li>
+                <%}%>
+                <% if(site.customConfig['github']){%>
+                <li>
+                    <a href="<%= site.customConfig['github']%>" target="_blank" class="social-wangyiyun" title="Twitter">
+                        <div class="www" id="github"></div>
+                    </a>
+                </li>
+                <%}%>
+            </div>
+        </div>
+    </figure>
+</div>
+<div class="mdui-container">
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <div class="head_card-offset"></div>
+            <div class="head_card-offset"></div>
+            <%- include('./includes/index-list') %>
+        </div>
+    </div>
+    <div class="mdui-row">
+    </div>
+</div>
+<%- include('./includes/footer') %>
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="<%=site.customConfig['route']%>media/js/index.js"></script>
+</html>

@@ -1,0 +1,10 @@
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        <% menus.forEach(function (menu) { %>
+        <li class="mdui-list-item mdui-ripple">
+            <a href="<%=menu.link%>" class="mdui-list-item-content"><%=menu.name%></a>
+        </li>
+        <%})%>
+    </ul>
+</div>

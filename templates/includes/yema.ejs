@@ -1,0 +1,30 @@
+<%if(pagination.prev||pagination.next){%>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                <% if (pagination.prev) { %>
+                    <a href="<%= pagination.prev %>" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                        <div class="doc-footer-nav-text">
+                            <i class="mdui-icon material-icons">arrow_back</i>
+                            <span class="doc-footer-nav-direction mdui-hidden-xs-down">查看</span>
+                            <div class="doc-footer-nav-chapter mdui-hidden-xs-down">上一页</div>
+                        </div>
+                    </a>
+                <%}else{%>
+                    <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                <%}%>
+                <% if (pagination.next) { %>
+                <a href="<%=pagination.next%>" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">查看</span>
+                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">下一页</div>
+                    </div>
+                </a>
+                <%}else{%>
+                    <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+<%}%>
