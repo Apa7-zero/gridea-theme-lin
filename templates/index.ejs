@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/index.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+    <%if(site.customConfig['tajs']){%>
+    <script type="text/javascript" src="<%=site.customConfig['tajs']%>" charset="UTF-8"></script>
+    <%}%>
     <style>
         #centerbg{
             background-image: url(<%=site.customConfig['indeximg']%>);
@@ -103,6 +106,21 @@
                     </a>
                 </li>
                 <%}%>
+                <% if(site.customConfig['wangyiyun']){%>
+                <li>
+                    <a href="<%= site.customConfig['wangyiyun']%>" target="_blank" class="social-wangyiyun" title="Twitter">
+                        <div class="www" id="wangyiyun"></div>
+                    </a>
+                </li>
+                <%}%>
+                <% if(site.customConfig['qidian']){%>
+                 <li>
+                     <a href="<%= site.customConfig['qidian']%>" target="_blank" class="social-wangyiyun" title="Twitter">
+                         <div class="www" id="qidian"></div>
+                     </a>
+                 </li>
+                <%}%>
+
             </div>
         </div>
     </figure>

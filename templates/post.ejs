@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/post.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
+    <%if(site.customConfig['tajs']){%>
+    <script type="text/javascript" src="<%=site.customConfig['tajs']%>" charset="UTF-8"></script>
+    <%}%>
 </head>
 <body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
 <%- include('./includes/header') %>

@@ -134,6 +134,16 @@
     background-position: -258px -144px
 }
 
+#wangyiyun{
+    background-image: url(../img/icons.png);
+    background-position: -291px -144px
+}
+
+#qidian{
+    background-image: url(../img/icons.png);
+    background-position: -322px -144px
+}
+
 .site-info {
     position: relative;
     padding: 2.5%;

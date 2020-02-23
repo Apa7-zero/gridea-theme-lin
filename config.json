@@ -13,6 +13,14 @@
       "note": "请输入图片地址"
     },
     {
+      "name": "tajs",
+      "label": "腾讯分析js链接",
+      "group": "首页",
+      "value": "",
+      "type": "input",
+      "note": "请输入腾讯分析代码"
+    },
+    {
       "name": "route",
       "label": "静态资源路径",
       "group": "首页",
@@ -63,6 +71,22 @@
     {
       "name": "bilibili",
       "label": "bilibili",
+      "group": "社交",
+      "value": "",
+      "type": "input",
+      "note": "链接地址"
+    },
+    {
+      "name": "wangyiyun",
+      "label": "网易云音乐",
+      "group": "社交",
+      "value": "",
+      "type": "input",
+      "note": "链接地址"
+    },
+    {
+      "name": "qidian",
+      "label": "起点中文网",
       "group": "社交",
       "value": "",
       "type": "input",
