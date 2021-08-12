@@ -1,0 +1,47 @@
+<template id="template">
+  <div class="comment1 " style="background-color:#fff;">
+    <div class="mdui-container-fluid">
+      <div class="mdui-row">
+        <div class="mdui-col-xs-4">
+          <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">昵称</label>
+            <input v-model="nickname" class="mdui-textfield-input" type="text"/>
+            <div class="mdui-textfield-helper">昵称请务必填写哦！</div>
+          </div>
+        </div>
+        <div class="mdui-col-xs-4">
+          <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">邮箱</label>
+            <input v-model="email" class="mdui-textfield-input" type="text"/>
+          </div>
+        </div>
+        <div class="mdui-col-xs-4">
+          <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">网址</label>
+            <input v-model="website" class="mdui-textfield-input" type="text"/>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-row">
+        <div class="mdui-col-xs-12">
+          <div class="mdui-textfield">
+            <textarea v-model="txt" class="mdui-textfield-input" rows="4" placeholder="评论内容"></textarea>
+            <div class="mdui-textfield-helper">评论也请填写哦~</div>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-row">
+        <div class="mdui-col-xs-12">
+          <div style="float:right ">
+<!--            <button @click="emojisButton" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">mood</i></button>-->
+            <button @click="getData" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">
+              提交
+            </button>
+          </div>
+        </div>
+      </div>
+      <emoji ref="emoji" @emojis_choice="emojisChoice"></emoji>
+
+    </div>
+  </div>
+</template>

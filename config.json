@@ -8,7 +8,7 @@
       "name": "indeximg",
       "label": "首页图片",
       "group": "首页",
-      "value": "",
+      "value": "/media/img/centerbg.jpg",
       "type": "input",
       "note": "请输入图片地址"
     },
@@ -93,36 +93,36 @@
       "note": "链接地址"
     },
       {
-        "name": "valine",
-        "label": "是否显示Valine评论",
-        "group": "Valine评论",
+        "name": "is_comment",
+        "label": "是否显示评论",
+        "group": "评论",
         "value": true,
         "type": "switch",
-        "note": "仅在宽屏时生效"
+        "note": "基于leancloud的评论"
       },
       {
-        "name": "id",
-        "label": "ID",
-        "group": "Valine评论",
+        "name": "app_id",
+        "label": "AppID",
+        "group": "评论",
         "value": "",
         "type": "input",
-        "note": "请输入ID"
+        "note": "leancloud的appid"
       },
       {
-        "name": "key",
-        "label": "KEY",
-        "group": "Valine评论",
+        "name": "app_key",
+        "label": "AppKey",
+        "group": "评论",
         "value": "",
         "type": "input",
-        "note": "请输入key"
+        "note": "leancloud的appkey"
       },
       {
-        "name": "fy",
-        "label": "欢迎词",
-        "group": "Valine评论",
+        "name": "rest_api",
+        "label": "REST API",
+        "group": "评论",
         "value": "",
         "type": "input",
-        "note": "请输入欢迎词"
+        "note": "leancloud的restApi"
       }
 
 ]

@@ -1,0 +1,7 @@
+<template id="template">
+        <div class="vemojis" :style="emojisStyle">
+                <i v-for="(v,k) in emojis" @click="emojisChoice(k)">
+                        <img width="30" height="30" :alt="k" referrerpolicy="no-referrer" class="emoji" :src="v">
+                </i>
+        </div>
+</template>

@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/post.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
     <%if(site.customConfig['tajs']){%>
@@ -71,34 +71,137 @@
             <%- include('./includes/disqus') %>
         <% } %>
     <% } %>
-    <div class="comment"></div>
+    <% if(site.customConfig['is_comment']){%>
+    <div id="vue_app">
+        <!--头像-->
+        <div class="mdui-card">
+            <!-- 卡片头部，包含头像、标题、副标题 -->
+            <div class="mdui-card-header">
+                <img style="cursor:pointer" @click="avatarOpen" class="mdui-card-header-avatar" :src="avatar"/>
+                <div class="mdui-card-header-title">评论列表</div>
+                <div class="mdui-card-header-subtitle"><-点击图标可以更换头像哦！！~~</div>
+            </div>
+        </div>
+        <br/>
+
+        <!--发表评论框-->
+        <reply @submit="replySubmit"></reply>
+
+        <!--评论列表-->
+        <div v-for="(v,k) in list">
+            <br>
+            <div class="mdui-card">
+                <!-- 卡片头部，包含头像、标题、副标题 -->
+                <div class="mdui-card-header">
+                    <img class="mdui-card-header-avatar" :src="v.attributes.img"/>
+                    <div v-if="v.attributes.website" class="mdui-text-color-theme mdui-card-header-title mdui-typo">
+                        <a target="view_window" :href="v.attributes.website">{{v.attributes.nickname}}</a>
+                        <span v-if="v.attributes.is_author" class="mdui-text-color-theme">（博主）</span>
+                    </div>
+                    <div v-else class="mdui-card-header-title">
+                        <span>{{v.attributes.nickname}}</span>
+                        <span v-if="v.attributes.is_author" class="mdui-text-color-theme">（博主）</span>
+                    </div>
+                    <div class="mdui-card-header-subtitle">{{time_format("Y年m月d日 H点s分",v.attributes.time)}}</div>
+                </div>
+
+                <!-- 卡片的内容 -->
+                <div class="mdui-card-content" v-html="v.attributes.txt"></div>
+
+                <div>
+                    <ul class="mdui-list" v-for="vv in JSON.parse(v.attributes.reply_son)">
+                        <li class="mdui-list-item">
+                            <div class="mdui-list-item-avatar"><img :src="vv.img"/></div>
+                            <div class="mdui-list-item-content"  style="height: auto">
+                                <div v-if="vv.website" class="mdui-list-item-title mdui-typo">
+                                    <a target="view_window" :href="vv.website" class="mdui-text-color-theme">{{vv.nickname}}</a>
+                                    <span v-if="vv.is_author" class="mdui-text-color-theme">（博主）</span>
+                                    <span class="mdui-typo-caption-opacity">{{time_format("Y年m月d日 H点s分",vv.time)}}</span>
+                                </div>
+                                <div v-else class="mdui-list-item-title">
+                                    {{vv.nickname}}
+                                    <span v-if="vv.is_author" class="mdui-text-color-theme">（博主）</span>
+                                    <span class="mdui-typo-caption-opacity">{{time_format("Y年m月d日 H点s分",vv.time)}}</span>
+                                </div>
+                                <div class="mdui-list-item-text mdui-typo">
+                                    <a v-if="vv.reply_website" :href="vv.reply_website" target="view_window" class="mdui-typo">@{{vv.reply_nickname}}</a>
+                                    <a v-else class="mdui-typo">@{{vv.reply_nickname}}</a>：
+                                    <span class="reply_son" v-html="vv.txt"></span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button
+                                        @click="reply2(k,vv.id,vv.nickname,vv.email,vv.website)"
+                                        class="mdui-btn mdui-text-color-pink"
+                                >
+                                    回复
+                                </button>
+                            </div>
+                        </li>
+                        <li class="mdui-divider-inset mdui-m-y-0"></li>
+                    </ul>
+                </div>
+
+                <div class="mdui-card-actions">
+                    <button
+                            @click="reply2(k,v.id,v.attributes.nickname,v.attributes.email,v.attributes.website)"
+                            style="float:right "
+                            class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent"
+                    >
+                        回复
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div style="text-align:center" v-if="list.length!=0">
+            <button @click="loadMore" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">加载更多</button>
+        </div>
+
+        <!--回复的弹窗-->
+        <div class="mdui-dialog" id="reply_mode">
+            <div class="mdui-dialog-title">
+                <span>回复</span>
+                <span class="mdui-text-color-theme">@{{replyList.nickname}}</span>
+                <span style="float:right ">
+                    <button class="mdui-btn"  @click="reply2Close">取消回复</button>
+                </span>
+            </div>
+            <reply @submit="reply2Submit"/>
+        </div>
+
+        <!--选头像的弹窗-->
+        <div class="mdui-dialog" id="avatar_mode">
+            <div class="mdui-dialog-title">
+                选择头像
+                <span style="float:right ">
+                    <button class="mdui-btn"  @click="avatarClose">取消选择</button>
+                </span>
+            </div>
+            <avatar @choice="avatarChoice"></avatar>
+        </div>
+    </div>
+    <object data="/media/js/modular/reply/reply.html" width="0" height="0" id="reply_object"></object>
+    <object data="/media/js/modular/emoji/emoji.html" width="0" height="0" id="emoji_object"></object>
+    <object data="/media/js/modular/avatar/avatar.html" width="0" height="0" id="avatar_object"></object>
+    <%}%>
 </div>
 <%- include('./includes/footer') %>
 </body>
-<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/mdui@1.0.0/dist/js/mdui.min.js"></script>
+<script src="/media/layer/layer.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.11.1/dist/av-min.js"></script>
+<script src="//unpkg.com/vue@next"></script>
 <script>
-    $('.comment').bind('DOMNodeInserted',()=>{
-        $('.comment').unbind()
-
-        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
-    })
-
-    let valine = new Valine({
-        el: '.comment',
-        <% if (site.customConfig.id) { %>
-        app_id: '<%= site.customConfig.id %>',
-        <% } %>
-        <% if (site.customConfig.key) { %>
-        app_key: '<%= site.customConfig.key %>',
-        <% } %>
-        <% if (site.customConfig.fy) { %>
-        placeholder: '<%= site.customConfig.fy %>',
-        <% } %>
-        path: window.location.pathname,
-        pageSize: 30,
-        avatar:'mm',
-        notify:true
-    })
+    <% if(site.customConfig['is_comment']){%>
+    //初始化leancloud的SDK
+    AV.init({
+        appId: "<%=site.customConfig['app_id']%>",
+        appKey: "<%=site.customConfig['app_key']%>",
+        serverURL: "<%=site.customConfig['rest_api']%>"
+    });
+    <%}%>
 </script>
+<script type="module" src="/media/js/post.js"></script>
 </html>
