@@ -6,3 +6,5 @@
 
 左下角看板娘的地址[https://www.wikimoe.com/?post=76](https://www.wikimoe.com/?post=76)
 
+评论系统是个人基于leancloud自己撸的。到gridea客户端可以自己配置。计划还开发一个论评的客户端方便回复
+
