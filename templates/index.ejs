@@ -22,6 +22,17 @@
             color: #B9B9B9;
         }
     </style>
+    <%if(site.customConfig['baidu_tongji']){%>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "<%=site.customConfig['tongji_url']%>"
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <%}%>
 </head>
 <body class=" mdui-loaded">
 <header class="mdui-toolbar mdui-color-theme mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">

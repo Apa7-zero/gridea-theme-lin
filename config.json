@@ -123,7 +123,23 @@
         "value": "",
         "type": "input",
         "note": "leancloud的restApi"
-      }
+      },
+       {
+        "name": "baidu_tongji",
+        "label": "是否进行统计",
+        "group": "统计",
+        "value": false,
+        "type": "switch",
+        "note": "基于百度统计"
+       },
+       {
+         "name": "tongji_url",
+         "label": "统计URL",
+         "group": "统计",
+         "value": "https://hm.baidu.com/hm.js?",
+         "type": "input",
+         "note": "百度给你的那串JS代码里的那个链接，这个默认值是前半段"
+       }
 
 ]
 }

@@ -14,6 +14,17 @@
     <%if(site.customConfig['tajs']){%>
     <script type="text/javascript" src="<%=site.customConfig['tajs']%>" charset="UTF-8"></script>
     <%}%>
+    <%if(site.customConfig['baidu_tongji']){%>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "<%=site.customConfig['tongji_url']%>"
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <%}%>
 </head>
 <body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
 <%- include('./includes/header') %>
