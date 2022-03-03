@@ -169,7 +169,7 @@ if(!norunFlag){
 	function showHitokoto(){
 		if(sessionStorage.getItem("Sleepy")!=="1"){
 			if(!AITalkFlag){
-				$.getJSON('https://sslapi.hitokoto.cn/',function(result){
+				$.getJSON('https://v1.hitokoto.cn/',function(result){
 					talkValTimer();
 					showMessage(result.hitokoto, 0);
 				});
