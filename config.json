@@ -92,54 +92,61 @@
       "type": "input",
       "note": "链接地址"
     },
-      {
-        "name": "is_comment",
-        "label": "是否显示评论",
-        "group": "评论",
-        "value": true,
-        "type": "switch",
-        "note": "基于leancloud的评论"
-      },
-      {
-        "name": "app_id",
-        "label": "AppID",
-        "group": "评论",
-        "value": "",
-        "type": "input",
-        "note": "leancloud的appid"
-      },
-      {
-        "name": "app_key",
-        "label": "AppKey",
-        "group": "评论",
-        "value": "",
-        "type": "input",
-        "note": "leancloud的appkey"
-      },
-      {
-        "name": "rest_api",
-        "label": "REST API",
-        "group": "评论",
-        "value": "",
-        "type": "input",
-        "note": "leancloud的restApi"
-      },
-       {
-        "name": "baidu_tongji",
-        "label": "是否进行统计",
-        "group": "统计",
-        "value": false,
-        "type": "switch",
-        "note": "基于百度统计"
-       },
-       {
-         "name": "tongji_url",
-         "label": "统计URL",
-         "group": "统计",
-         "value": "https://hm.baidu.com/hm.js?",
-         "type": "input",
-         "note": "百度给你的那串JS代码里的那个链接，这个默认值是前半段"
-       }
-
-]
+    {
+      "name": "is_comment",
+      "label": "是否显示评论",
+      "group": "评论",
+      "value": true,
+      "type": "switch",
+      "note": "基于leancloud的评论"
+    },
+    {
+      "name": "app_id",
+      "label": "AppID",
+      "group": "评论",
+      "value": "",
+      "type": "input",
+      "note": "leancloud的appid"
+    },
+    {
+      "name": "app_key",
+      "label": "AppKey",
+      "group": "评论",
+      "value": "",
+      "type": "input",
+      "note": "leancloud的appkey"
+    },
+    {
+      "name": "rest_api",
+      "label": "REST API",
+      "group": "评论",
+      "value": "",
+      "type": "input",
+      "note": "leancloud的restApi"
+    },
+    {
+      "name": "baidu_tongji",
+      "label": "是否进行统计",
+      "group": "统计",
+      "value": false,
+      "type": "switch",
+      "note": "基于百度统计"
+    },
+    {
+       "name": "tongji_url",
+       "label": "统计URL",
+       "group": "统计",
+       "value": "https://hm.baidu.com/hm.js?",
+       "type": "input",
+       "note": "百度给你的那串JS代码里的那个链接，这个默认值是前半段"
+    },
+    {
+      "name": "music_url",
+      "label": "音乐",
+      "group": "看板娘",
+      "value": "",
+      "type": "input",
+      "note": "音乐外链"
+    }
+  ]
 }
