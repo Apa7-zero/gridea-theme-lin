@@ -296,10 +296,13 @@ if(!norunFlag){
 					return;
 				}
 				showMessage('思考中~', 0);
-				jQuery.support.cors = true;
-				$.getJSON({
-					type: 'GET',
-					url: talkAPI + info_,
+				$.ajax({
+					type: 'POST',
+					url: talkAPI,
+					data: {
+						"info":info_,
+						"userid":userid_
+					},
 					success: function(res) {
 						if(res.code !== 100000){
 							talkValTimer();
