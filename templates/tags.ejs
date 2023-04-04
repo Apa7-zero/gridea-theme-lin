@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/mdui/css/mdui.min.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/tags.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
     <%if(site.customConfig['tajs']){%>
@@ -41,5 +41,5 @@
         </div>
         <%- include('./includes/footer') %>
 </body>
-<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="<%=site.customConfig['route']%>media/mdui/js/mdui.min.js"></script>
 </html>

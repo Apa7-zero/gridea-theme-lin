@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
+    <link rel="stylesheet" href="<%=site.customConfig['route']%>media/mdui/css/mdui.min.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/css/post.css">
     <link rel="stylesheet" href="<%=site.customConfig['route']%>media/live2d/css/live2d.css" />
     <%if(site.customConfig['tajs']){%>
@@ -189,7 +189,7 @@
 </div>
 <%- include('./includes/footer') %>
 </body>
-<script src="//cdn.jsdelivr.net/npm/mdui@1.0.0/dist/js/mdui.min.js"></script>
+<script src="<%=site.customConfig['route']%>media/mdui/js/mdui.min.js"></script>
 <script src="/media/layer/layer.js"></script>
 <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.11.1/dist/av-min.js"></script>
 <script src="//unpkg.com/vue@next"></script>
@@ -203,5 +203,5 @@
     });
     <%}%>
 </script>
-<script type="module" src="/media/js/post.js"></script>
+<script type="module" src="<%=site.customConfig['route']%>media/js/post.js"></script>
 </html>
